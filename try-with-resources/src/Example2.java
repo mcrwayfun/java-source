@@ -16,7 +16,7 @@ public class Example2 {
 
         }
     }
-    
+
     private static class CloseAble implements Closeable {
         @Override
         public void close() throws IOException {
