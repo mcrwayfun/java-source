@@ -1,3 +1,6 @@
+import java.io.Closeable;
+import java.io.IOException;
+
 /**
  * @author mcrwayfun
  * @version 1.0
@@ -13,8 +16,15 @@ public class Example2 {
 
         }
     }
+    
+    private static class CloseAble implements Closeable {
+        @Override
+        public void close() throws IOException {
+            System.out.println("AutoCloseAble close resources");
+        }
+    }
 
-    private static class MyAutoCloseAble implements AutoCloseable{
+    private static class MyAutoCloseAble implements AutoCloseable {
         @Override
         public void close() throws Exception {
             System.out.println("MyAutoCloseAble close resources");
