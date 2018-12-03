@@ -3,13 +3,15 @@ package com.mcrwayfun;
 import java.util.*;
 
 class Initable {
-    static final int staticFinal = 47;
-    static final int staticFinal2 =
-            ClassInitialization.rand.nextInt(1000);
 
     static {
         System.out.println("Initializing Initable");
     }
+
+    static final int staticFinal = 47;
+    static final int staticFinal2 =
+            ClassInitialization.rand.nextInt(1000);
+
 }
 
 class Initable2 {
@@ -44,10 +46,6 @@ public class ClassInitialization {
         System.out.println("After creating Initable3 ref");
         System.out.println(Initable3.staticNonFinal);
 
-        int a =1,b;
-        b=a++;
-        System.out.println(a);
-        System.out.println(b);
     }
 }
 /* Output:
