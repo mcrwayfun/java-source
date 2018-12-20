@@ -18,11 +18,11 @@
         <property name="employee" ref="employee"/>
     </bean>
 
-    <!-- 配置切面bean，否则Aspects advices不能执行-->
-    <bean name="employeeAspect" class="com.mcrwayfun.aspect.EmployeeAspect" />
-    <bean name="employeeAspectPointcut" class="com.mcrwayfun.aspect.EmployeeAspectPointcut" />
-    <bean name="employeeAfterAspect" class="com.mcrwayfun.aspect.EmployeeAfterAspect" />
-    <bean name="employeeAroundAspect" class="com.mcrwayfun.aspect.EmployeeAroundAspect" />
-    <bean name="employeeAnnotationAspect" class="com.mcrwayfun.aspect.EmployeeAnnotationAspect" />
-
+    <!--&lt;!&ndash; 配置切面bean，否则Aspects advices不能执行&ndash;&gt;-->
+    <!--<bean name="employeeAspect" class="com.mcrwayfun.aspect.EmployeeAspect" />-->
+    <!--<bean name="employeeAspectPointcut" class="com.mcrwayfun.aspect.EmployeeAspectPointcut" />-->
+    <!--<bean name="employeeAfterAspect" class="com.mcrwayfun.aspect.EmployeeAfterAspect" />-->
+    <!--<bean name="employeeAroundAspect" class="com.mcrwayfun.aspect.EmployeeAroundAspect" />-->
+    <!--<bean name="employeeAnnotationAspect" class="com.mcrwayfun.aspect.EmployeeAnnotationAspect" />-->
+    <bean name="LoggingAfterAspect" class="com.mcrwayfun.aspect.LoggingAfterAspect"/>
 </beans>
