@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+    <!-- 启动对@Aspect注解的支持 -->
+    <aop:aspectj-autoproxy />
+
+    <!-- 使用xml配置的方式配置pojp -->
+    <bean name="employee" class="com.mcrwayfun.entity.Employee">
+        <property name="name" value="Dummy Name"></property>
+    </bean>
+
+    <!-- 使用xml方式配置employeeService -->
+    <bean name="employeeService" class="com.mcrwayfun.service.impl.EmployeeServiceImpl">
+        <property name="employee" ref="employee"/>
+    </bean>
+
+    <!-- 配置切面bean，否则Aspects advices不能执行-->
+    <bean name="employeeAspect" class="com.mcrwayfun.aspect.EmployeeAspect" />
+    <bean name="employeeAspectPointcut" class="com.mcrwayfun.aspect.EmployeeAspectPointcut" />
+    <bean name="employeeAfterAspect" class="com.mcrwayfun.aspect.EmployeeAfterAspect" />
+    <bean name="employeeAroundAspect" class="com.mcrwayfun.aspect.EmployeeAroundAspect" />
+    <bean name="employeeAnnotationAspect" class="com.mcrwayfun.aspect.EmployeeAnnotationAspect" />
+
+</beans>
