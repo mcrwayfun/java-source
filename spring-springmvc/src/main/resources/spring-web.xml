@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+
+    <!--配置spring mvc-->
+    <!--1,开启springmvc注解模式
+    a.自动注册DefaultAnnotationHandlerMapping,AnnotationMethodHandlerAdapter
+    b.默认提供一系列的功能:数据绑定，数字和日期的format@NumberFormat,@DateTimeFormat
+    c:xml,json的默认读写支持-->
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="true">
+            <!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 注解请求映射
+            默认是ISO-88859-1，避免乱码这里设置为UTF-8 -->
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <!--<property name="supportedMediaTypes" value="text/html;charset=UTF-8" />-->
+                <property name="supportedMediaTypes" ref="mdeiaTypes"/>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <util:list id="mdeiaTypes" list-class="java.util.ArrayList">
+        <value>application/x-www-form-urlencoded;charset=UTF-8</value>
+        <value>multipart/form-data;charset=UTF-8</value>
+        <value>text/plain</value>
+        <value>text/html;charset=UTF-8</value>
+        <value>text/xml;charset=UTF-8</value>
+        <value>application/octet-stream;charset=UTF-8</value>
+        <value>application/xml;charset=UTF-8</value>
+        <value>application/json;charset=UTF-8</value>
+    </util:list>
+    <!--2.静态资源默认servlet配置-->
+    <!--
+        1).加入对静态资源处理：js,gif,png
+        2).允许使用 "/" 做整体映射
+    -->
+    <mvc:default-servlet-handler/>
+
+    <!--3:扫描web相关的controller-->
+    <context:component-scan base-package="com.mcrwayfun.controller"/>
+
+
+</beans>

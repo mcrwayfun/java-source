@@ -8,5 +8,5 @@ package com.mcrwayfun.service;
  */
 public interface DemoService {
 
-    void sayHello(String name);
+    String sayHello(String name);
 }

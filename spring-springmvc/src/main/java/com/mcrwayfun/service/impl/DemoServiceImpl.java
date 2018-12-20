@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class DemoServiceImpl implements DemoService {
 
-    public void sayHello(String name) {
-        System.out.println("say hello to " + name);
+    public String sayHello(String name) {
+        return "say hello to " + name;
     }
 }

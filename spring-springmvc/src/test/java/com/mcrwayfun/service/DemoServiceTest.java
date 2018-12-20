@@ -2,6 +2,8 @@ package com.mcrwayfun.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.test.context.ContextConfiguration;
@@ -19,11 +21,14 @@ import static org.junit.Assert.*;
 @ContextConfiguration({"classpath:spring-service.xml"})
 public class DemoServiceTest {
 
+    public static final Logger log = LoggerFactory.getLogger(DemoServiceTest.class);
+
     @Autowired
     private DemoService demoService;
 
     @Test
     public void sayHello() {
-        demoService.sayHello("mcrwayfun");
+        String result = demoService.sayHello("mcrwayfun");
+        log.info(result);
     }
 }
